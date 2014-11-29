@@ -532,7 +532,7 @@ libssh2_userauth_publickey_fromfile_ex(LIBSSH2_SESSION *session,
                                        const char *privatekey,
                                        const char *passphrase);
 
-#define libssh2_userauth_publickey_fromfile(session, username, publickey, \
+#define libssh4_userauth_publickey_fromfile(session, username, publickey, \
                                             privatekey, passphrase)     \
   libssh2_userauth_publickey_fromfile_ex((session), (username), \
                                          strlen(username), (publickey), \
@@ -780,6 +780,8 @@ LIBSSH2_API int libssh2_channel_wait_eof(LIBSSH2_CHANNEL *channel);
 LIBSSH2_API int libssh2_channel_close(LIBSSH2_CHANNEL *channel);
 LIBSSH2_API int libssh2_channel_wait_closed(LIBSSH2_CHANNEL *channel);
 LIBSSH2_API int libssh2_channel_free(LIBSSH2_CHANNEL *channel);
+LIBSSH2_API int libssh2_channel_socket_fd(LIBSSH2_CHANNEL* channel);
+
 
 LIBSSH2_API LIBSSH2_CHANNEL *libssh2_scp_recv(LIBSSH2_SESSION *session,
                                               const char *path,

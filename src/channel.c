@@ -1871,6 +1871,20 @@ ssize_t _libssh2_channel_read(LIBSSH2_CHANNEL *channel, int stream_id,
 }
 
 /*
+ * libssh2_channel_socket_fd
+ *
+ * Returns the session's socket_fd value from a channel
+ *
+ * This can help some developers who want to use anything which needs sockets
+ * casting.
+ */
+LIBSSH2_API int
+libssh2_channel_socket_fd(LIBSSH2_CHANNEL* channel)
+{
+	return channel->session->socket_fd;
+}
+
+/*
  * libssh2_channel_read_ex
  *
  * Read data from a channel (blocking or non-blocking depending on set state)
@@ -2502,6 +2516,7 @@ libssh2_channel_free(LIBSSH2_CHANNEL *channel)
     BLOCK_ADJUST(rc, channel->session, _libssh2_channel_free(channel));
     return rc;
 }
+
 /*
  * libssh2_channel_window_read_ex
  *
