@@ -532,7 +532,7 @@ libssh2_userauth_publickey_fromfile_ex(LIBSSH2_SESSION *session,
                                        const char *privatekey,
                                        const char *passphrase);
 
-#define libssh4_userauth_publickey_fromfile(session, username, publickey, \
+#define libssh2_userauth_publickey_fromfile(session, username, publickey, \
                                             privatekey, passphrase)     \
   libssh2_userauth_publickey_fromfile_ex((session), (username), \
                                          strlen(username), (publickey), \
